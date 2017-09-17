@@ -1,32 +1,52 @@
-import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Alert } from 'react-native';
+import React from 'react';
+import { Button, Platform, ScrollView, StyleSheet } from 'react-native';
+import { DrawerNavigator } from 'react-navigation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import SampleText from './SampleText';
 
-export default class app extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Personal starter template for react-native. By @andersondecarvalho</Text>
-        <MaterialIcons name="drafts" size={200} style={{ color: 'red' }} />
-        <Icon.Button name="facebook" backgroundColor="#3b5998">
-          Logar com o Facebook
-        </Icon.Button>
-      </View>
-    );
+const MyNavScreen = ({ navigation, banner }) => (
+  <ScrollView style={styles.container}>
+    <SampleText>{banner}</SampleText>
+    <Button onPress={() => navigation.navigate('DrawerOpen')} title="Open drawer" />
+    <Button onPress={() => navigation.goBack(null)} title="Go back" />
+  </ScrollView>
+);
+
+const InboxScreen = ({ navigation }) => <MyNavScreen banner={'Inbox Screen'} navigation={navigation} />;
+InboxScreen.navigationOptions = {
+  drawerLabel: 'Inbox',
+  drawerIcon: ({ tintColor }) => <MaterialIcons name="move-to-inbox" size={24} style={{ color: tintColor }} />
+};
+
+const DraftsScreen = ({ navigation }) => <MyNavScreen banner={'Drafts Screen'} navigation={navigation} />;
+DraftsScreen.navigationOptions = {
+  drawerLabel: 'Drafts',
+  drawerIcon: ({ tintColor }) => <MaterialIcons name="drafts" size={24} style={{ color: tintColor }} />
+};
+
+const DrawerExample = DrawerNavigator(
+  {
+    Inbox: {
+      path: '/',
+      screen: InboxScreen
+    },
+    Drafts: {
+      path: '/sent',
+      screen: DraftsScreen
+    }
+  },
+  {
+    initialRouteName: 'Drafts',
+    contentOptions: {
+      activeTintColor: '#e91e63'
+    }
   }
-}
+);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
+    marginTop: Platform.OS === 'ios' ? 20 : 0
   }
 });
+
+export default DrawerExample;
