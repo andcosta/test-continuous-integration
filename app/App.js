@@ -1,42 +1,48 @@
 import React from 'react';
-import { Button, Platform, ScrollView, StyleSheet } from 'react-native';
-import { DrawerNavigator } from 'react-navigation';
+import { Button, Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { DrawerItems, DrawerNavigator } from 'react-navigation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import SampleText from './SampleText';
+import Initial from './screens/Initial';
+import TabBarExample from './screens/TabBarExample';
 
-const MyNavScreen = ({ navigation, banner }) => (
-  <ScrollView style={styles.container}>
-    <SampleText>{banner}</SampleText>
-    <Button onPress={() => navigation.navigate('DrawerOpen')} title="Open drawer" />
-    <Button onPress={() => navigation.goBack(null)} title="Go back" />
-  </ScrollView>
+const InitialScreen = ({ navigation }) => <Initial navigation={navigation} />;
+InitialScreen.navigationOptions = {
+  drawerLabel: 'Tela inicial',
+  drawerIcon: ({ tintColor }) => <MaterialIcons name="credit-card" size={24} style={{ color: tintColor }} />
+};
+
+const TabBarExampleScreen = ({ navigation }) => <TabBarExample navigation={navigation} />;
+TabBarExampleScreen.navigationOptions = {
+  drawerLabel: 'Exemplo Tabbar',
+  drawerIcon: ({ tintColor }) => <MaterialIcons name="credit-card" size={24} style={{ color: tintColor }} />
+};
+
+const contentComponent = props => (
+  <View>
+    <View>
+      <Text>Header fixo</Text>
+      <Text>Header fixo</Text>
+    </View>
+    <View>
+      <DrawerItems {...props} />
+    </View>
+  </View>
 );
-
-const InboxScreen = ({ navigation }) => <MyNavScreen banner={'Inbox Screen'} navigation={navigation} />;
-InboxScreen.navigationOptions = {
-  drawerLabel: 'Inbox',
-  drawerIcon: ({ tintColor }) => <MaterialIcons name="move-to-inbox" size={24} style={{ color: tintColor }} />
-};
-
-const DraftsScreen = ({ navigation }) => <MyNavScreen banner={'Drafts Screen'} navigation={navigation} />;
-DraftsScreen.navigationOptions = {
-  drawerLabel: 'Drafts',
-  drawerIcon: ({ tintColor }) => <MaterialIcons name="drafts" size={24} style={{ color: tintColor }} />
-};
 
 const DrawerExample = DrawerNavigator(
   {
-    Inbox: {
-      path: '/',
-      screen: InboxScreen
+    Initial: {
+      path: '/initial',
+      screen: InitialScreen
     },
-    Drafts: {
-      path: '/sent',
-      screen: DraftsScreen
+    TabBarExample: {
+      path: '/tabBarExample',
+      screen: TabBarExampleScreen
     }
   },
   {
-    initialRouteName: 'Drafts',
+    contentComponent: contentComponent,
+    initialRouteName: 'Initial',
     contentOptions: {
       activeTintColor: '#e91e63'
     }
