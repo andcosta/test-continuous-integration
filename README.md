@@ -29,8 +29,7 @@ Execute o comando ```git clone``` para baixar o projeto template. Em seguida, v√
 ## Pacotes Utilizados no Projeto Template
 
 1. Navigator: https://reactnavigation.org/
-
-2. Fabric: https://www.npmjs.com/package/react-native-fabric
+2. Vector icons: https://github.com/oblador/react-native-vector-icons
 
 
 
