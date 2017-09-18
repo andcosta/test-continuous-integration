@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, Text } from 'react-native';
+import { View, Button, Text } from 'react-native';
 import styles from './index.style';
 
 export default class Initial extends Component {
