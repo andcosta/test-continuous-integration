@@ -49,6 +49,7 @@ Execute o comando ```git clone``` para baixar o projeto template. Em seguida, v√
 
 
 ## Estrutura do projeto
+```
    | android
    |__ ios
    |__ node_modules
@@ -59,7 +60,7 @@ Execute o comando ```git clone``` para baixar o projeto template. Em seguida, v√
     - components
     - screens
     - resources
-
+```
 
 
 ## Gerar bundle android
