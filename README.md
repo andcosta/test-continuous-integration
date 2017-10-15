@@ -64,8 +64,7 @@ Execute o comando ```git clone``` para baixar o projeto template. Em seguida, v√
    |  |  
    |  | imagens
    |  | pdf
-   |  | 
-   |  |
+   |  | ...
    |  
    | app
     - components
