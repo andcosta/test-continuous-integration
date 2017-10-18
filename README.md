@@ -50,26 +50,33 @@ Execute o comando ```git clone``` para baixar o projeto template. Em seguida, v�
 
 ## Estrutura do projeto
 ```
-   | android
-   | 
-   |__ ios
-   |
-   | node_modules
-   |  |
-   |  | ...
-   |
-   | index.ios.js
-   | 
-   |__ assets
-   |  |  
-   |  | imagens
-   |  | pdf
-   |  | ...
-   |  
-   | app
-    - components
-    - screens
-    - resources
+my-app
+├── README.md
+├── node_modules
+├── package.json
+│   index.ios.js
+├── .gitignore
+├── public
+│   └ favicon.ico
+│   └ index.html
+│   └ manifest.json
+└── src
+    ├── assets
+    │   └── imagens
+    │   └── pdf   
+    │ 
+    ├── assets
+    │   └── imagens
+    │ 
+    ├── screens
+    │   └── imagens
+    │ 
+    └── App.js
+    └── App.test.js
+    └── index.css
+    └── index.js
+    └── logo.svg
+    └── registerServiceWorker.js
 ```
 
 
