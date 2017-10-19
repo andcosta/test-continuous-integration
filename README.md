@@ -60,6 +60,7 @@ my-app
 │   └ favicon.ico
 │   └ index.html
 │   └ manifest.json
+│
 └── src
     ├── assets
     │   └── imagens
