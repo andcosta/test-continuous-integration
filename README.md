@@ -71,6 +71,7 @@ my-app
     │ 
     ├── screens
     │   └── imagens
+    │
     │ 
     └── App.js
     └── App.test.js
