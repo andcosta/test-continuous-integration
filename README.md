@@ -59,8 +59,6 @@ my-app
     ├── assets
     │   └── imagens
     │
-    │
-    │
     ├── screens
     │   └── imagens
     └── App.js
