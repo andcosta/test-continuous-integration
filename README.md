@@ -62,6 +62,7 @@ my-app
     │
     │
     │
+    │
     ├── screens
     │   └── imagens
     └── App.js
