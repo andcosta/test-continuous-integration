@@ -73,6 +73,25 @@ my-app
     └── registerServiceWorker.js
 ```
 
+### Directory Layout
+
+```bash
+├── node_modules/                  # 3rd-party libraries and utilities
+├── public/                        # Static files such as favicon.ico etc.
+├── src/                           # Application source code
+│   ├── components/                # Shared React components
+│   ├── routes/                    # Components for pages/screens + routing information
+│   ├── auth.js                    # Authentication manager
+│   ├── history.js                 # Client-side navigation manager
+│   ├── index.js                   # <== Application entry point (main) <===
+│   ├── registerServiceWorker.json # This list of application routes
+│   ├── relay.js                   # Relay Modern client
+│   ├── graphql.schema             # GraphQL schema obtained from a GraphQL API
+│   └── theme.js                   # Overrides for Material UI default styles
+├── package.json                   # The list of project dependencies + NPM scripts
+└── setup.js                       # Customizations for create-react-app
+```
+
 ## Gerar bundle android
 
 ```
